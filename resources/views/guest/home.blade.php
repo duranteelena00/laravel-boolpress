@@ -3,9 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
+        <title>Laravel Boolpress</title>
         <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
@@ -13,9 +11,9 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ url('admin.home') }}">Dashboard</a>
                         @else
+                        <a href="{{ route('login') }}">Login</a>
                         @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
                         @endif

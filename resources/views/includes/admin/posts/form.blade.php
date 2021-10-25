@@ -17,5 +17,5 @@
         <label for="image">Image url</label>
         <input type="text" class="form-control @error('image') is-invalid @enderror" id="image" name="image" value="{{ old('image', $post->image) }}">
       </div>
-    <button type="submit" class="btn btn-success">Save</button>
+    <button type="submit" class="justify-content-flex-end btn btn-success">Save</button>
   </form>

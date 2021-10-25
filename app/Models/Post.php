@@ -15,3 +15,10 @@ class Post extends Model
     }
 };
 
+/* public function cathegory(){
+    return $this->belongsTo('App\Models\Cathegory');
+};
+
+public function author(){
+    return $this->belongsTo('App\User', 'user_id');
+}; */

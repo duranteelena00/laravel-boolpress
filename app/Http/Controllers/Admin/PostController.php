@@ -107,4 +107,3 @@ class PostController extends Controller
         return redirect()->route('admin.posts.index')->with('alert-message', 'Post successfully deleted')->with('alert-type', 'success');
     }
 }
-
