@@ -12,11 +12,9 @@
             </div>
         @endif
         <header>
-            <h1 class="mb-4">Edit the post</h1>
-            <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+            <h1 class="mb-4">Create a new cathegory</h1>
+            <a href="{{ route('admin.cathegories.index')}}"></a>
         </header>
-        <section id="form">
-            @include('includes.admin.posts.form')
-        </section>
+        @include('includes.admin.cathegories.form')
     </div>
 @endsection

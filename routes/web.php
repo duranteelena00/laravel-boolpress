@@ -24,6 +24,10 @@ Route::middleware('auth')->name('admin.')->prefix('admin')->namespace('Admin')->
     //Rotte protette
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::resource('posts', 'PostController');
+    Route::resource('cathegories', 'CathegoryController');
+    Route::get('/{any}', function(){
+        abort(404);
+    });
 });
 
 //*Rotte che non sono di auth né di /admin

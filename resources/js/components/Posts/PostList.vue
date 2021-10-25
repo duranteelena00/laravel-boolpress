@@ -1,6 +1,6 @@
 <template>
   <section id="post-list">
-    <h2>My Posts</h2>
+    <h2 class="mt-4 mb-3">My Posts</h2>
     <Loader v-if="isLoading" />
     <div v-else>
       <PostCard v-for="post in posts" :key="post.id" :post="post" />
@@ -14,10 +14,10 @@
 </template>
 
 <script>
-import axios from axios;
-import Loader from '../Loader.vue'
-import PostCard from './PostCard.vue'
-import Pagination from './Pagination.vue'
+import axios from 'axios';
+import Loader from '../Loader.vue';
+import PostCard from './PostCard.vue';
+import Pagination from '../Pagination.vue';
 export default {
     name: 'PostList',
     components: {

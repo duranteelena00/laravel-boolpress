@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <Header :title="title" />
+    <Header class="mt-3" :title="title" />
     <main><PostList/></main>
   </div>
 </template>

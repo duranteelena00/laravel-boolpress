@@ -23,7 +23,7 @@
       </li>
       <li
         class="page-item"
-        v-if="last_page > currentPage"
+        v-if="lastPage > currentPage"
         @click="$emit('onPageChange', currentPage + 1)"
       >
         <a class="page-link" href="#">Next</a>
@@ -34,7 +34,7 @@
 
 <script>
 export default {
-  name: "Pagination",
+  name: 'Pagination',
   props: ['currentPage', 'lastPage']
 };
 </script>

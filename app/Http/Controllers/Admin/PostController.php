@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\Post;
+use App\Models\Cathegory;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -16,7 +17,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::with('cathegory')->paginate(5);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -28,7 +29,8 @@ class PostController extends Controller
     public function create()
     {
         $post = new Post();
-        return view('admin.posts.create', compact('post'));
+        $cathegories = Cathegory::all();
+        return view('admin.posts.create', compact('post', 'cathegories'));
     }
 
     /**
@@ -74,7 +76,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.posts.edit', compact('post'));
+        $cathegories = Cathegory::all();
+        return view('admin.posts.edit', compact('post', 'cathegories'));
     }
 
     /**
@@ -86,9 +89,16 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
+        $request->validate([
+            'title' => 'required|string|unique:posts|min:3',
+            'content' => 'required|string|',
+            'image' => 'nullable|string',
+        ]);
+
         $data = $request->all();
-        $post->fill($data);
-        $post->slug = Str::slug($post->title, '-');
+        /* $post->fill($data); */
+        $data['slug'] = Str::slug($post->title, '-');
+        $data['cathegory_id'] = $request->cathegory_id;
 
         $post->save();
 

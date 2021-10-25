@@ -11,12 +11,8 @@
                 </ul>
             </div>
         @endif
-        <header>
-            <h1 class="mb-4">Edit the post</h1>
-            <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
-        </header>
-        <section id="form">
-            @include('includes.admin.posts.form')
-        </section>
+        <h1 class="mb-4">Edit the cathegory</h1>
+        <a href="{{ url()->previous() }}" class="btn btn-secondary">Back</a>
+        @include('includes.admin.cathegories.form')
     </div>
 @endsection

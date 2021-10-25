@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card mb-3">
     <div class="card-header">{{ post.title }}</div>
     <div class="card-body">
       <p>
@@ -8,8 +8,9 @@
     </div>
     <div class="card-footer bg-white d-flex justify-content-end">
       <time
-        ><small>Published on: {{ post.created_at }}</small></time
+        ><small>Published on: {{ getFormattedDate(post.created_at) }}</small></time
       >
+      <small class="badge badge-pill badge-info px2">{{ post.cathegory.name || '-' }}</small>
     </div>
   </div>
 </template>
@@ -17,6 +18,7 @@
 <script>
 export default {
   name: "PostCard",
+  props: ['post'],
   methods: {
     getFormattedDate(date) {
       const postDate = new Date(date);
