@@ -15,6 +15,8 @@
                     <th scope="col">#</th>
                     <th scope="col">Title</th>
                     <th scope="col">Cathegory</th>
+                    <th scope="col">Tags</th>
+                    <th scope="col">Author</th>
                     <th scope="col">Created at</th>
                     <th scope="col"></th>
                 </tr>
@@ -24,8 +26,22 @@
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
-                        <td>@if ($post->cathegory)<span class="badge badge-pill badge-info px-2">{{ $post->cathegory->name }}</span>@else - @endif</td>
-
+                        <td>
+                            @if ($post->cathegory)<span class="badge badge-pill badge-{{ $post->cathegory->color ?? 'light'}} px-2">{{ $post->cathegory->name }}</span>
+                            @else - 
+                            @endif
+                        </td>
+                        <td>
+                            @if ($post->author){{ $post->author()->name }}
+                            @else Anonimous 
+                            @endif
+                        </td>
+                        <td>
+                        @forelse ($post->tags as $tag)
+                            <span class="badge badge-pill px-2" style="background-color: {{ $tag->color }}">{{ $tag->name }}</span>
+                        @empty -
+                        @endforelse
+                        </td>
                         <td>{{ $post->getFormattedDate('created_at') }}</td>
                         <td class="w-100 d-flex justify-content-end">
                             <a href="{{ route('admin.posts.show', $post->id) }}" class="ml-2 btn btn-primary">Read</a>

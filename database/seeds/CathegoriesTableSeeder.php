@@ -13,15 +13,15 @@ class CathegoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        $cathegory_names = ['HTML', 'CSS', 'JS', 'PHP', 'VueJS', 'Laravel'];
+        $cathegories = [['name' => 'HTML', 'color' => 'danger'], ['name' => 'CSS', 'color' => 'warning'], ['name' => 'JS', 'color' => 'primary'], ['name' => 'PHP', 'color' => 'secondary'], ['name' => 'VueJS', 'color' => 'success'], ['name' => 'Laravel', 'color' => 'info']];
 
-        foreach($cathegory_names as $name) {
-            $cathegory = new Cathegory();
+        foreach($cathegories as $cathegory) {
+            $new_cathegory = new Cathegory();
 
-            $cathegory->name = $name;
-            $cathegory->slug = Str::slug($name, '-');
+            $new_cathegory->name = $cathegory['name'];
+            $new_cathegory->slug = Str::slug($cathegory['name'], '-');
 
-            $cathegory->save();
+            $new_cathegory->save();
         }
     }
 }

@@ -2057,6 +2057,9 @@ function _readOnlyError(name) { throw new TypeError("\"" + name + "\" is read-on
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "PostCard",
   props: ['post'],
@@ -38704,7 +38707,16 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "card mb-3" }, [
-    _c("div", { staticClass: "card-header" }, [_vm._v(_vm._s(_vm.post.title))]),
+    _c("div", { staticClass: "card-header" }, [
+      _c("h4", [_vm._v(_vm._s(_vm.post.title))]),
+      _vm._v(" "),
+      _c("address", [
+        _vm._v(
+          "Created by: " +
+            _vm._s(_vm.post.author ? _vm.post.author.name : "Anonimous")
+        )
+      ])
+    ]),
     _vm._v(" "),
     _c("div", { staticClass: "card-body" }, [
       _c("p", [_vm._v("\n      " + _vm._s(_vm.post.content) + "\n    ")])

@@ -1,6 +1,9 @@
 <template>
   <div class="card mb-3">
-    <div class="card-header">{{ post.title }}</div>
+    <div class="card-header">
+      <h4>{{ post.title }}</h4>
+      <address>Created by: {{ post.author ? post.author.name : 'Anonimous'}}</address>
+    </div>
     <div class="card-body">
       <p>
         {{ post.content }}

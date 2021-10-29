@@ -29,5 +29,16 @@
         @endforeach
     </select>
 </div>
+
+<fieldset class="mb-3">
+    <legend class="h6">Tags</legend>
+    @foreach ($tags as $tag)
+    <div class="form-check form-check-inline">
+        <input class="form-check-input" type="checkbox" id="tag-{{ $tag->id }}" value="{{ $tag->id }}" name="tags[]" @if(in_array($tag->id, old('tags', $tagIds ?? []))) checked @endif>
+        <label class="form-check-label" for="tag-{{ $tag->id }}">{{ $tag->name }}</label>
+    </div>
+    @endforeach
+</fieldset>
+
 <button type="submit" class="justify-content-flex-end btn btn-success">Save</button>
 </form>

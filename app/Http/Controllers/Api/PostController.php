@@ -15,8 +15,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::paginate(5);
-
+        
+        $posts = Post::with(['cathegory', 'author', 'tags'])->paginate(5);
         return response()->json($posts);
     }
 
